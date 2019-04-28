@@ -9,11 +9,13 @@ public class MyHeap{
         data[index] = data[2 * index + 1];
         data[2 * index + 1] = num;
         num = data[2 * index + 1];
+        pushDown(data, size, 2 * index + 1);
       }
       if (num < data[2 * index + 2]) {
         data[index] = data[2 * index + 2];
         data[2 * index + 2] = num;
         num = data[2 * index + 2];
+        pushDown(data, size, 2 * index + 2);
       }
     }
     else if (2 * index + 1 < size) {
@@ -21,6 +23,7 @@ public class MyHeap{
         data[index] = data[2 * index + 1];
         data[2 * index + 1] = num;
         num = data[2 * index + 1];
+        pushDown(data, size, 2 * index + 1);
       }
     }
   }
