@@ -2,7 +2,7 @@
 //child nodes are 2n+1 or 2n+2
 
 public class MyHeap{
-  public static void pushDown(int[] data, int size, int index) {
+  private static void pushDown(int[] data, int size, int index) {
     int num = data[index];
     if (2 * index + 2 < size) {
       if (num < data[2 * index + 1] && data[2 * index + 1] > data[2 * index + 2]) {
@@ -39,6 +39,13 @@ public class MyHeap{
   }
 
   public static void heapsort(int[] data) {
-
+    int size = data.length;
+    heapify(data);
+    while (size > 0) {
+      int large = data[0];
+      data[0] = data[size - 1];
+      data[size - 1] = large;
+      size--;
+    }
   }
 }
