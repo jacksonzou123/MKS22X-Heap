@@ -31,7 +31,12 @@ public class MyHeap{
   }
 
   private static void pushUp(int[] data,int index) {
-
+    if (n-1 > 0 && data[index] > data[(index - 1)/2]) {
+      int num = data[index];
+      data[index] = data[(index - 1)/2];
+      data[(index-1)/2] = num;
+      pushUp(data, (index-1)/2);
+    }
   }
 
   public static void heapify(int[] data) {
