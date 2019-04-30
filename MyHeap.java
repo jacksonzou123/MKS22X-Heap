@@ -1,6 +1,8 @@
 //parent node is (n-1)/2
 //child nodes are 2n+1 or 2n+2
 
+import java.util.*;
+
 public class MyHeap{
   private static void pushDown(int[] data, int size, int index) {
     int num = data[index];
@@ -41,11 +43,14 @@ public class MyHeap{
   public static void heapsort(int[] data) {
     int size = data.length;
     heapify(data);
+    System.out.println(Arrays.toString(data));
     while (size > 0) {
       int large = data[0];
       data[0] = data[size - 1];
       data[size - 1] = large;
       size--;
+      pushDown(data,size,0);
+      System.out.println(Arrays.toString(data));
     }
   }
 }
